@@ -1,0 +1,21 @@
+---
+# Paths
+STORAGE_PATH: '../data'                           # Path to the data folder
+MODEL_PATH: 'UNet/weights/UNet_model.pth' # Path to the saved UNet weights (.pth file)
+
+# Gdal
+BAND: 1                                           # Band to read from the raster file
+RESIZE_FACTOR: 0.1                                # Downscaling factor applied to the JP2 image  
+TILE_SIZE: 512                                    # Size of the tiles cut from donwsacled .png (pixels)     
+
+# Unet parameters
+NUM_CHANNELS: 1                                   # Number of channels in the input image
+NUM_CLASSES: 1                                    # Number of classes in the output mask
+THRESHOLD: 0.5                                    # Threshold for the output mask; eveything below this value is set to 0, everything above to 1
+
+# skimage.morpohlogy & edge detection
+GAP_SIZE: 50000                                   # Any gap smaller than this value will be filled (pixels)
+ISLAND_SIZE: 50000                                # Any island smaller than this value will be removed (pixels)                   
+CNT_DENSITY: 100                                  # Gap between knot points along the contour (pixels); the higher the value, the less points are kept, the smoother the contour.
+
+

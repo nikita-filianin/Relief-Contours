@@ -5,6 +5,7 @@ from Core.PngTools import PngUtils
 from Core.utility import makeDirs, downloadJP2, save_results
 
 import argparse
+import time
 
 
 def main(conf: dict):
@@ -41,7 +42,7 @@ if __name__ == '__main__':
     # UNet args
     parser.add_argument('--NUM_CHANNELS', metavar = ':', type=int,  help='Number of channels in the input image')
     parser.add_argument('--NUM_CLASSES', metavar = ':', type=int,  help='Number of classes in the output mask')
-    parser.add_argument('--THRESHOLD', metavar = ':', type=float, choices = range(0,1), help='Threshold for the output mask; eveything below this value is set to 0, everything above to 1')
+    parser.add_argument('--THRESHOLD', metavar = ':', type=float, help='Threshold for the output mask; eveything below this value is set to 0, everything above to 1')
 
     # skimage.morphology.morphology & edge detection args
     parser.add_argument('--GAP_SIZE', metavar = ':', type=int,  help='Any gap smaller than this value will be filled (pixels)')
@@ -52,5 +53,12 @@ if __name__ == '__main__':
 
     conf = Config(args['CONFIG_PATH']).getConfig(args)
   
+    start_time = time.time()
+
     main(conf)
+    
+    end_time = time.time()
+    processing_time = end_time - start_time
+    print(f'Processing Time: {processing_time:.1f} seconds')
+
 

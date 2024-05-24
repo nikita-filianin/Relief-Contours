@@ -81,7 +81,7 @@ class PngUtils():
         """ 
 
         model = UNet(self.conf).to(self.device)
-        model.load_state_dict(torch.load(self.mpath)['state_dict'])
+        model.load_state_dict(torch.load(self.mpath, map_location=torch.device(self.device))['state_dict'])
         model.eval()
         print('Model loaded successfully')
 

@@ -30,7 +30,7 @@ if __name__ == '__main__':
     # General args
     parser.add_argument('--imID', metavar = ':', type=str, required = True, help='Image ID')
     parser.add_argument('--STORAGE_PATH', metavar = ':', type=str, help = 'Path to data storage')
-    parser.add_argument('--CONFIG_PATH', metavar = ':', default = 'Configs/config.yaml', type=str, help = 'Path to .yml config file')
+    parser.add_argument('--CONFIG_PATH', metavar = ':', default = 'Configs/config.yaml', type=str, help = 'Path to .yaml config file')
     parser.add_argument('--MODEL_PATH', metavar = ':', type=str, help = 'Path to UNet .pth weights file')
 
     # Gdal args
@@ -60,5 +60,3 @@ if __name__ == '__main__':
     end_time = time.time()
     processing_time = end_time - start_time
     print(f'Processing Time: {processing_time:.1f} seconds')
-
-
